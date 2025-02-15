@@ -1,8 +1,7 @@
 import { FaStar, FaRegStar, FaStarHalfAlt } from "react-icons/fa";
 
 const Rating = ({ value, text }) => {
-    console.log(text);
-    
+
   return (
     <div className="flex items-center gap-1 text-yellow-400">
       {[1, 2, 3, 4, 5].map((i) => (

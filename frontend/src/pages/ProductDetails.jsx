@@ -1,14 +1,34 @@
 import { useParams } from "react-router-dom";
-import products from "../product";
+import { useState, useEffect } from "react";
 import Rating from "../components/Rating";
+import axios from "axios";
 const ProductDetails = () => {
   const { id: productId } = useParams();
-  const product = products.find((p) => p._id === productId);
-  console.log(product);
+const [loading, setLoading] = useState(true)
 
+  const [product, setProduct] = useState(null);
+
+  useEffect(()=>{
+    const fetchProducts = async()=>{
+      try{
+        const {data} = await axios.get(`/api/products/${productId}`);
+      setProduct(data);
+
+      }catch(err){
+        console.log(err);
+      }finally{
+        setLoading(false)
+      }
+    }
+  
+    fetchProducts()
+  },[productId])
+
+  console.log(product);
+  if(loading) return <div>Loading...</div>
   return (
     <div className="flex justify-center gap-4 m-8">
-      <img src="/img.jpg" className="w-md" alt={product.name} />
+      <img src="/img.jpg" className="w-md" alt="product" />
 
       <div className="space-y-4 max-w-md">
         <h3 className="text-3xl">{product.name}</h3>

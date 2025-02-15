@@ -11,7 +11,9 @@
   "author": "Dev Khairpal",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^3.0.0",
     "express": "^4.21.2",
+    "mongoose": "^8.10.0",
     "nodemon": "^3.1.9"
   },
   "devDependencies": {

@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import Rating from "./Rating";
 
 const Card = ({ product }) => {
-  console.log("Product:", product); // Debugging
   return (
     <Link to={`/product/${product._id}`} className="mx-4 bg-white mb-8 rounded-4xl h-[350px] shadow-2xl">
       <img src={product.image} className="w-sm rounded-t-4xl" alt={product.name} />
