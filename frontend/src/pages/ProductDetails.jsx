@@ -24,7 +24,6 @@ const [loading, setLoading] = useState(true)
     fetchProducts()
   },[productId])
 
-  console.log(product);
   if(loading) return <div>Loading...</div>
   return (
     <div className="flex justify-center gap-4 m-8">
