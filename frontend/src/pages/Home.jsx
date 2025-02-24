@@ -1,4 +1,5 @@
 import Card from "../components/Card";
+import Loader from "../components/Loader";
 import { useGetProductsQuery } from "../slices/productsApiSlice";
 const Home = () => {
   const { data: products, isLoading, error } = useGetProductsQuery();
@@ -6,7 +7,7 @@ const Home = () => {
   return (
     <>
       {isLoading ? (
-        <h2>Loading...</h2>
+        <Loader />
       ) : error ? (
         <div>{error?.data?.message || error.error}</div>
       ) : (
